@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from elasticsearch import Elasticsearch
 import json
 
-es = Elasticsearch(["172.16.1.103:9200"])
+es = Elasticsearch(["localhost:9200"])
 app = Flask(__name__)
 
 
