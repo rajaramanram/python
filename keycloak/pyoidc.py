@@ -9,18 +9,20 @@ app = Flask(__name__)
 app.config.update({
     'SECRET_KEY': 'Secret',
     'DEBUG': True,
-    'OIDC_REDIRECT_URI': 'http://localhost:5000'
+    'OIDC_REDIRECT_URI': 'http://127.0.0.1:5000/oidc_callback',
+    'OIDC_SESSION_PERMANENT':True,
+    'PERMANENT_SESSION_LIFETIME':True
 })
 #'OIDC_INTROSPECTION_AUTH_METHOD': 'client_secret_post',
 #'OIDC_TOKEN_TYPE_HINT': 'access_token'
 
 
-@app.before_first_request
+'''@app.before_first_request
 def initialize():
     print("session initialized")
     #flask.session["initialized"] = True
     get_session = flask.session
-    print(get_session)
+    print(get_session)'''
 
 
 '''@app.before_request
@@ -36,22 +38,24 @@ def check2():
         print("session not initialized=2")
         session['initialized'] = True'''
 
-provider_metadata = ProviderMetadata(issuer="http://localhost:8080/auth/realms/master", authorization_endpoint="http://localhost:8080/auth/realms/master/protocol/openid-connect/auth", jwks_uri="http://localhost:8080/auth/realms/master/protocol/openid-connect/certs")
-#, userinfo_uri= "http://localhost:8080/auth/realms/master/protocol/openid-connect/userinfo",token_uri= "http://localhost:8080/auth/realms/master/protocol/openid-connect/token",token_introspection_uri= "http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect"
+provider_metadata = ProviderMetadata(issuer="http://localhost:8080/auth/realms/customer_b", authorization_endpoint="http://localhost:8080/auth/realms/customer_b/protocol/openid-connect/auth", jwks_uri="http://localhost:8080/auth/realms/customer_b/protocol/openid-connect/certs", userinfo_endpoint="http://localhost:8080/auth/realms/customer_b/protocol/openid-connect/userinfo", token_endpoint="http://localhost:8080/auth/realms/customer_b/protocol/openid-connect/token", token_introspection_endpoint="http://localhost: 8080/auth/realms/customer_b/protocol/openid-connect/token/introspect")
+#, userinfo_uri= "http://localhost:8080/auth/realms/master/protocol/openid-connect/userinfo",token_uri= "http://localhost:8080/auth/realms/master/protocol/openid-connect/token",token_introspection_uri= "http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect",jwks_uri="http://localhost:8080/auth/realms/customer_b/protocol/openid-connect/certs",, token_introspection_uri= "http: // localhost: 8080/auth/realms/customer_b/protocol/openid-connect/token/introspect"
 #config = ProviderConfiguration(provider_metadata=provider_metadata, [client_configuration])
 PROVIDER_NAME1 = 'default'
-client_metadata = ClientMetadata(client_id='autointelli', client_secret='becaca34-3413-4120-857b-0c37ec1a4a74')
+client_metadata = ClientMetadata(
+    client_id='autointelli', client_secret='f60b5f85-b41c-4e0d-8c25-56a7d3a9acba')
 #client_metadata = ClientMetadata(client_id = 'security-admin-console', client_secret = '5991d968-8c6d-43fc-8960-57bbac1ba85c')
 
 config = ProviderConfiguration(provider_metadata=provider_metadata, client_metadata=client_metadata)
 #config = ProviderConfiguration(issuer="http://localhost:8080/auth/realms/master", client_metadata = client_metadata)
-auth = OIDCAuthentication({PROVIDER_NAME1: config})
+auth = OIDCAuthentication({PROVIDER_NAME1: config},app)
 
 @app.route('/')
 @auth.oidc_auth(PROVIDER_NAME1)
 def login1():
     #print(auth.user_getfield('preferred_username'))
     #print(auth.valid_access_token)
+    #se = app.session['id_token']
     user_session = UserSession(flask.session)
     for i in flask.session:
         print(i)
