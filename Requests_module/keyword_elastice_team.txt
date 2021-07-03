@@ -1,0 +1,10 @@
+POST first_project/_update/1/
+{
+  "script": {
+    "source": """def result = new ArrayList();
+result.add(ctx._source.TEAM);
+result.add("bar");
+ctx._source.TEAM =result;""",
+    "lang": "painless"
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <br>
+        <center><b>Service Response Notification</b></center>
+        <br*3>
+        <h3><b></b></h3>
+        <TABLE BORDER="4" WIDTH="50%" CELLPADDING="5" CELLSPACING="3" ALIGN="center">
+            {% for i,g in final_url %}
+                <TR>
+                    <TD>URL</TD>
+                    <TD>{{g}}</TD>
+                </TR>
+                {% if get_response[i] < 300 %}
+                    <TR>
+                        <TD>Response</TD>
+                        <TD style="color:green">{{get_response[i]}}</TD>
+                    </TR>
+                {% else %}
+                    <TR>
+                        <TD>Response</TD>
+                        <TD style="color:red">{{get_response[i]}}</TD>
+                    </TR>
+                {% endif %}
+                {% if get_response[i] in range(400,498) %}
+                <TR>
+                    <TD>Error Type</TD>
+                    <TD style="color:red">Client Error</TD>
+                </TR>
+                {% endif %}
+                <TR>
+                    <TD>Response Time in sec</TD>
+                    <TD>{{get_response_time[i]}}</TD>
+                </TR>
+            {% endfor %}
+        </TABLE>
+        <br*3>
+        <h4><b>Regards,</b></h4>
+        <h4>Autointelli</h4>
+    </body>
+</html>

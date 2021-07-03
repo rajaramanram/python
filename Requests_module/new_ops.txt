@@ -1,0 +1,20 @@
+4-------API
+
+1) create-team
+a)Team_name
+b)Description(ASSIGNMENT)
+c)Status
+
+2)get-team
+a)Team_name
+b)Description(ASSIGNMENT)
+c)Status
+
+3)Assing_to_team
+a)Input_alertid
+b)assigning to team(default=assigned)
+
+4)update_alert_status
+a)get_status
+b)ID
+c)change_status

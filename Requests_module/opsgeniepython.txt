@@ -1,0 +1,86 @@
+====Python Alert API====
+1)create Alert:
+    message='Sample',
+    alias='python_sample',
+    description='Sample of SDK v2',
+    responders=[{
+        'name': 'SampleTeam',
+        'type': 'team'
+      }],
+    visible_to=[
+       {'name': 'Sample',
+        'type': 'team'}],
+    actions=['Restart', 'AnExampleAction'],
+    tags=['OverwriteQuietHours'],
+    details={'key1': 'value1',
+             'key2': 'value2'},
+    entity='An example entity',
+    priority='P3'
+
+2)Get Request Status
+
+3)Get Alert
+
+4)Delete Alert/Acknowledge Alert---------------->
+
+5)List Alert:
+	limit=3, offset=5, 
+	sort='updatedAt', 
+	order='asc', search_identifier_type='name'
+
+6)Count Alerts------------------->
+
+7)Close Alerts
+
+8)Add Note To Alert--------------->
+
+9)Execute Custom Alert Action
+
+10)Unacknowledge Alert
+
+11)Snooze Alert
+
+12)Escalate Alert
+	escalation={'name': 'sample_escalation'}
+
+13)Assign Alert
+	owner={'username': 'test@abc.com'}
+
+14)Add Team to Alert
+	team={'name': 'sampleName'}
+
+15)Add Responder to Alert
+	responder={'type': 'user', 'username': 'sample@abc.com'}
+
+16)Add Tags to Alert
+	tags=['test1', 'test2', 'tag3']
+
+17)Remove Tags from Alert-------->
+
+18)Add Details to Alert
+	details={'serverName': 'Zion', 'region': 'Oregon'}
+
+19)Remove Details from Alert
+
+20)Create a Saved Search
+	name='Closed but Unacked Alerts', description='viaPythonSdk', query='status: Open and acknowledged: false', owner={'username': 'abc@test.com'}, teams=[{'name': 'sampleName'}
+
+21)List Saved Searches
+
+22)Add Alert Attachment--------------->
+	file='testAttachment.txt'
+=====Incident API========
+
+1)Create Incident
+    message="Example Incident",
+    description="Creating example incident",
+    service_id=serviceId,
+    priority='P5'
+
+2)Get Incident
+
+3)Delete Incident
+
+4)List Incidents
+
+5)Close Incidents

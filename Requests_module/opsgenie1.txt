@@ -1,0 +1,86 @@
+1)Multiple Notifiction Channels:	
+	SMS, mobile push, phone call, email
+
+2) Adjust Notifications: Flexible to change settings.
+	1)New alerts
+	2)on-call duty start and end times
+	3)When an alert is acknowledged, closed or when a note is added to an alert
+
+3)Intergrating with Monitoring Tools
+
+4)Intergrating with Chat Tools
+	eg:Slack, Microsoft Teams
+
+5)Alert Flow:
+	1) Create An Alert
+	2)Take Alert Actions. eg:Acknowledged,Closed.
+	3)Track alert lifecycle.
+
+6)Basic Incident Management :
+a)Manual Incident Creation.
+	Form:	
+		1)Impacted Services
+		2)Incident Template
+		3)Incident Message
+		4)Incident description
+		5)priority
+		6)Tags
+		7)Conference Bridge
+		8)Extra Properties
+		9)Status Page Entry Title
+		10)Status Page Entry Details
+		11)Email Norification Template
+	Create Incident:
+		1)Add Team
+		2)Add Responder
+	TimeLine : Record history with Timeline, postmortem reports for future reference.
+	Slack for Incidents: communicate during incidents faster help to the team.
+		1)create Slack Channels.
+
+7)Services:
+	1)All Services
+	2)Internal Services
+	3)Unowned Services
+
+8)Users:
+	1)Managing users:
+		a) Name
+		b)Email
+		c)Role
+		d)status
+	2) User Roles:
+		a)Owner
+		b)Admin
+		c)Default User
+		d)Stakeholder
+		e)Observer
+
+9)Configurations
+	a)API
+	b)Outgoing
+	c)Bidirectional
+	d)Chat
+	e)Email
+
+10)Track Events with Dashboard
+	1)Number of alerts.
+	2)Mean time to acknowledge/close.
+	3)Alerts per Team.
+	4)Alerts Created per Hour.
+	5)Alerts Created per Day.
+	6)API Usage Reports
+	7)Exporting Alerts.
+-------------------------
+ALERTS:
+1)Alert Page: UI 
+	a)Number of alerts.
+	b)Mean time to acknowledge/close.
+	c)Alerts per Team.
+	d)Created per Hour.
+	e)Alerts Created per Day.
+	d)API Usage Reports
+	e)Exporting Alerts.
+
+2)Alert De-Duplication: To reduce number of alerts and prevents alert fatigue.
+
+	
