@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <br>
+        <center><b>Service Notification Manager</b></center>
+        <br*2>
+        <h3><b>Summary</b></h3>
+        <hr style="widows: 100px;" >
+        <p>service Status information on Host {{hostname}} for Service - {{servicename}}</p>
+        <br*2>
+        <h3><b>Alert Details:</b></h3>
+        <br*2>
+        <h3><b></b></h3>
+        <TABLE  BORDER="4"    WIDTH="50%"   CELLPADDING="5" CELLSPACING="3">
+            <TR>
+                <TD>Notification</TD>
+                <TD>Service Restart</TD>
+            </TR>
+            {% for i in html_service %}
+                <TR>
+                    <TD>Service Description</TD>
+                    <TD>{{i}}</TD>
+                </TR>
+            {% endfor %}
+            </TR>
+            <TR>
+                <TD>Host Name</TD>
+                <TD>{{hostname}}</TD>
+            </TR>
+            <TR>
+                <TD>Time</TD>
+                <TD>{{data_time}}</TD>
+            </TR>
+        </TABLE>
+        <br*3>
+        <h4><b>Regards,</b></h4>
+        <h4>Autointelli</h4>
+    </body>
+</html>

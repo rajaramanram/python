@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <br>
+        <center><b>Service Notification Manager</b></center>
+        <br*2>
+        <h3><b>Alert Details:</b></h3>
+        <br*2>
+        <h3><b></b></h3>
+        <hr style="widows: 100px;">
+        <TABLE  BORDER="4"    WIDTH="50%"   CELLPADDING="5" CELLSPACING="3" ALIGN="center"> 
+                {% for g,l in hostname %}
+                <TR>
+                    <TD>IP Address</TD>
+                    <TD>{{l}}</TD>
+                </TR>
+                {% for i in total_list[g] %}
+                    {% if i.endswith("(running)") %}
+                        <TR>
+                            <TD>Service Description</TD>
+                            <TD style="color:green">{{i}}</TD>
+                        </TR>
+                    {% elif i.endswith("running") %}
+                        <TR>
+                            <TD>Service Description</TD>
+                            <TD style="color:green">{{i}}</TD>
+                        </TR>
+                    {% elif i.startswith("autoint+") %}
+                        <TR>
+                            <TD>Service Description</TD>
+                            <TD style="color:green">{{i}}</TD>
+                        </TR>    
+                    {% else %}
+                        <TR>
+                            <TD>Service Description</TD>
+                            <TD style="color:red">{{i}}</TD>
+                        </TR>
+                    {% endif %}
+                {% endfor %}
+                {% for x in get_waiting_two[g] %}
+                    <TR>
+                        <TD>Jobs Waiting</TD>
+                        <TD style="color:red">{{x}}</TD>
+                    </TR>
+                {% endfor %}
+                
+            {% endfor %}
+            <TR>
+                <TD>Time</TD>
+                <TD>{{data_time}}</TD>
+            </TR>
+        </TABLE>
+        <br*3>
+        <h4><b>Regards,</b></h4>
+        <h4>Autointelli</h4>
+    </body>
+</html>
